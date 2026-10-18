@@ -1,0 +1,824 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Pause Garden — small practices for spacious days. Breathing, meditation, yoga, and more in 3–5 minutes."/>
+  <title>Pause Garden — Small practices for spacious days</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<!-- ═══════════════════════════ TOPBAR ═══════════════════════════ -->
+<header class="topbar" id="topbar">
+  <a class="brand" href="#" id="homeLink" aria-label="Pause Garden home">
+    <span class="brand-icon" aria-hidden="true">
+      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="16" cy="16" r="16" fill="#246B50"/>
+        <path d="M16 7 Q21 11 16 19 Q11 11 16 7Z" fill="#8FD9AA"/>
+        <path d="M16 13 Q23 15 20 23 Q13 21 16 13Z" fill="#63B98B" opacity="0.85"/>
+      </svg>
+    </span>
+    <span class="brand-name">Pause Garden</span>
+  </a>
+  <p class="brand-tagline">Small practices for spacious days</p>
+  <div class="top-actions">
+    <button class="nav-pill" id="notesBtn" type="button">My notes</button>
+    <button class="nav-pill nav-pill-ghost" id="authBtn" type="button">Sign in</button>
+  </div>
+</header>
+
+<!-- ═══════════════════════════ HOME VIEW ═══════════════════════════ -->
+<div id="view-home" class="view active">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">YOUR QUIET CORNER</p>
+      <h1>What would feel <em>good</em> right now?</h1>
+      <p class="hero-sub">Choose a small pause. No goals, no streaks—just three to five minutes to return to yourself.</p>
+    </div>
+    <div class="hero-orb-wrap">
+      <div class="hero-orb-rings" aria-hidden="true">
+        <div class="hero-ring hero-ring-3"></div>
+        <div class="hero-ring hero-ring-2"></div>
+      </div>
+      <button class="hero-orb" id="heroOrb" type="button" aria-label="Begin with a breath, 3 minutes">
+        <span class="hero-orb-label">Begin with a breath</span>
+        <span class="hero-orb-dur">3 min</span>
+        <span class="hero-orb-arrow" aria-hidden="true">→</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- DAILY CHECK-IN -->
+  <section class="checkin-section" id="checkinSection">
+    <div class="checkin-inner">
+      <p class="section-label">A QUICK CHECK-IN</p>
+      <h2 class="checkin-heading">How are you feeling right now?</h2>
+      <div class="mood-grid" id="moodGrid" role="group" aria-label="Select your current mood">
+        <button class="mood-btn" data-mood="calm"       type="button"><span class="mood-emoji">🌿</span><span>Calm</span></button>
+        <button class="mood-btn" data-mood="okay"       type="button"><span class="mood-emoji">☁️</span><span>Okay</span></button>
+        <button class="mood-btn" data-mood="tired"      type="button"><span class="mood-emoji">🌙</span><span>Tired</span></button>
+        <button class="mood-btn" data-mood="stressed"   type="button"><span class="mood-emoji">🌊</span><span>Stressed</span></button>
+        <button class="mood-btn" data-mood="overwhelmed"type="button"><span class="mood-emoji">⛈️</span><span>Overwhelmed</span></button>
+        <button class="mood-btn" data-mood="unsure"     type="button"><span class="mood-emoji">🍃</span><span>Not sure</span></button>
+      </div>
+      <div class="mood-suggestion" id="moodSuggestion" hidden>
+        <p class="suggestion-text" id="suggestionText"></p>
+        <button class="suggestion-cta" id="suggestionCta" type="button"></button>
+      </div>
+      <button class="skip-btn" id="skipCheckin" type="button">Skip for now</button>
+    </div>
+  </section>
+
+  <!-- ACTIVITY GRID -->
+  <section class="activities-section" id="activities">
+    <div class="activities-header">
+      <div class="activities-header-left">
+        <p class="section-label">EIGHT WAYS TO PAUSE</p>
+        <h2>Wander into what you need</h2>
+      </div>
+      <p class="activities-sub">Every space has its own rhythm, atmosphere, and way to participate.</p>
+    </div>
+
+    <div class="activity-grid">
+
+      <!-- 01 Breathing -->
+      <div class="activity-card card-aqua" tabindex="0" role="button" aria-label="Start Breathing Garden — 3 to 5 minutes" data-activity="breathing">
+        <div class="card-meta"><span class="card-num">01</span><span class="card-dur">3–5 MIN</span></div>
+        <div class="card-illo illo-breathing" aria-hidden="true">
+          <div class="illo-ring ir-3"></div>
+          <div class="illo-ring ir-2"></div>
+          <div class="illo-dot"></div>
+        </div>
+        <div class="card-copy">
+          <p class="card-label">AQUA STUDIO</p>
+          <h3>Breathe with the tide</h3>
+          <p class="card-desc">A spacious, guided rhythm to help everything soften.</p>
+          <span class="card-arrow-btn" aria-hidden="true">→</span>
+        </div>
+      </div>
+
+      <!-- 02 Meditation -->
+      <div class="activity-card card-lav" tabindex="0" role="button" aria-label="Start Meditation Sanctuary — 3 to 5 minutes" data-activity="meditation">
+        <div class="card-meta"><span class="card-num">02</span><span class="card-dur">3–5 MIN</span></div>
+        <div class="card-illo illo-meditation" aria-hidden="true">
+          <div class="illo-moon"></div>
+          <div class="illo-hill-back"></div>
+          <div class="illo-hill-front"></div>
+        </div>
+        <div class="card-copy">
+          <p class="card-label">LAVENDER SANCTUARY</p>
+          <h3>Find a quiet horizon</h3>
+          <p class="card-desc">Short prompts, generous space, and a moment to arrive.</p>
+          <span class="card-arrow-btn" aria-hidden="true">→</span>
+        </div>
+      </div>
+
+      <!-- 03 Yoga -->
+      <div class="activity-card card-lime" tabindex="0" role="button" aria-label="Start Yoga and Stretching — 3 to 5 minutes" data-activity="yoga">
+        <div class="card-meta"><span class="card-num">03</span><span class="card-dur">3–5 MIN</span></div>
+        <div class="card-illo illo-yoga" aria-hidden="true">
+          <svg class="stick-figure-preview" viewBox="0 0 120 200" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="60" cy="28" r="18" fill="#2D5240"/>
+            <rect x="53" y="48" width="14" height="68" rx="7" fill="#2D5240"/>
+            <rect x="5"  y="62" width="50" height="12" rx="6" fill="#2D5240" transform="rotate(-8 30 68)"/>
+            <rect x="65" y="62" width="50" height="12" rx="6" fill="#2D5240" transform="rotate(8 90 68)"/>
+            <rect x="50" y="115" width="12" height="60" rx="6" fill="#2D5240" transform="rotate(8 56 145)"/>
+            <rect x="58" y="115" width="12" height="60" rx="6" fill="#2D5240" transform="rotate(-8 64 145)"/>
+          </svg>
+        </div>
+        <div class="card-copy">
+          <p class="card-label">MOVEMENT STUDIO</p>
+          <h3>Move your whole mood</h3>
+          <p class="card-desc">Follow an animated guide through a gentle desk reset.</p>
+          <span class="card-arrow-btn" aria-hidden="true">→</span>
+        </div>
+      </div>
+
+      <!-- 04 Grounding -->
+      <div class="activity-card card-mint" tabindex="0" role="button" aria-label="Start Grounding Garden — 3 to 5 minutes" data-activity="grounding">
+        <div class="card-meta"><span class="card-num">04</span><span class="card-dur">3–5 MIN</span></div>
+        <div class="card-illo illo-grounding" aria-hidden="true">
+          <div class="illo-stone is-1"></div>
+          <div class="illo-stone is-2"></div>
+          <div class="illo-stone is-3"></div>
+        </div>
+        <div class="card-copy">
+          <p class="card-label">SENSORY GARDEN</p>
+          <h3>Come back to your senses</h3>
+          <p class="card-desc">Notice the small, real things already around you.</p>
+          <span class="card-arrow-btn" aria-hidden="true">→</span>
+        </div>
+      </div>
+
+      <!-- 05 Body Relaxation -->
+      <div class="activity-card card-peach" tabindex="0" role="button" aria-label="Start Body Relaxation — 3 to 5 minutes" data-activity="relaxation">
+        <div class="card-meta"><span class="card-num">05</span><span class="card-dur">3–5 MIN</span></div>
+        <div class="card-illo illo-relax" aria-hidden="true">
+          <div class="illo-body-oval"></div>
+        </div>
+        <div class="card-copy">
+          <p class="card-label">WARM UNWIND</p>
+          <h3>Let your body unclench</h3>
+          <p class="card-desc">Release tension slowly, one body area at a time.</p>
+          <span class="card-arrow-btn" aria-hidden="true">→</span>
+        </div>
+      </div>
+
+      <!-- 06 Screen Break -->
+      <div class="activity-card card-sky" tabindex="0" role="button" aria-label="Start Screen Break — 3 to 5 minutes" data-activity="screen">
+        <div class="card-meta"><span class="card-num">06</span><span class="card-dur">3–5 MIN</span></div>
+        <div class="card-illo illo-screen" aria-hidden="true">
+          <div class="illo-window-frame">
+            <div class="illo-win-sky"></div>
+            <div class="illo-win-sun"></div>
+            <div class="illo-win-arch"></div>
+          </div>
+        </div>
+        <div class="card-copy">
+          <p class="card-label">FRESH-AIR INTERMISSION</p>
+          <h3>Look somewhere farther</h3>
+          <p class="card-desc">A minimal break for tired eyes and busy shoulders.</p>
+          <span class="card-arrow-btn" aria-hidden="true">→</span>
+        </div>
+      </div>
+
+      <!-- 07 Reflection -->
+      <div class="activity-card card-lilac" tabindex="0" role="button" aria-label="Start Quiet Reflection — 3 to 5 minutes" data-activity="reflection">
+        <div class="card-meta"><span class="card-num">07</span><span class="card-dur">3–5 MIN</span></div>
+        <div class="card-illo illo-journal" aria-hidden="true">
+          <div class="illo-paper-sheet">
+            <div class="illo-paper-line ipl-1"></div>
+            <div class="illo-paper-line ipl-2"></div>
+          </div>
+        </div>
+        <div class="card-copy">
+          <p class="card-label">PERSONAL JOURNAL</p>
+          <h3>Meet yourself on the page</h3>
+          <p class="card-desc">One thoughtful question and room for an honest answer.</p>
+          <span class="card-arrow-btn" aria-hidden="true">→</span>
+        </div>
+      </div>
+
+      <!-- 08 Gratitude -->
+      <div class="activity-card card-gold" tabindex="0" role="button" aria-label="Start Gratitude Garden — 3 to 5 minutes, optional timer" data-activity="gratitude">
+        <div class="card-meta"><span class="card-num">08</span><span class="card-dur">3–5 MIN OPTIONAL</span></div>
+        <div class="card-illo illo-gratitude" aria-hidden="true">
+          <div class="illo-bubble ib-1"></div>
+          <div class="illo-bubble ib-2"></div>
+          <div class="illo-bubble ib-3"></div>
+        </div>
+        <div class="card-copy">
+          <p class="card-label">SUNSHINE NOTES</p>
+          <h3>Keep one good thing</h3>
+          <p class="card-desc">Collect bright moments in your private garden.</p>
+          <span class="card-arrow-btn" aria-hidden="true">→</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SOUNDS SECTION -->
+  <section class="sounds-section" id="soundsHome">
+    <div class="sounds-inner">
+      <div class="sounds-head">
+        <p class="section-label">CALMING SOUNDS</p>
+        <h2>Set the right atmosphere</h2>
+        <p>Choose a sound to accompany any activity, or simply let it play alongside your day.</p>
+      </div>
+      <div class="sounds-chips" id="soundsChips" role="group" aria-label="Choose a calming sound">
+        <button class="sound-chip" data-sound="rain"    type="button"><span class="sc-icon">🌧</span><span>Gentle Rain</span></button>
+        <button class="sound-chip" data-sound="forest"  type="button"><span class="sc-icon">🌲</span><span>Forest</span></button>
+        <button class="sound-chip" data-sound="water"   type="button"><span class="sc-icon">💧</span><span>Flowing Water</span></button>
+        <button class="sound-chip" data-sound="ocean"   type="button"><span class="sc-icon">🌊</span><span>Ocean Waves</span></button>
+        <button class="sound-chip" data-sound="wind"    type="button"><span class="sc-icon">🍃</span><span>Soft Wind</span></button>
+        <button class="sound-chip" data-sound="tone"    type="button"><span class="sc-icon">🎵</span><span>Soft Tone</span></button>
+        <button class="sound-chip sound-chip-silence" data-sound="silence" type="button"><span class="sc-icon">○</span><span>Silence</span></button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p>✦ No pressure. No perfect practice. Just a pause.</p>
+    <p class="footer-sub">Your notes and progress are saved on this device only. <button class="text-link" id="privacyBtn" type="button">Learn more</button></p>
+  </footer>
+</div>
+
+<!-- ═══════════════════════════ BREATHING VIEW ═══════════════════════════ -->
+<div id="view-breathing" class="view activity-view" hidden aria-label="Breathing Garden activity">
+  <div class="av-bg bg-aqua"></div>
+  <div class="av-inner">
+    <div class="av-topbar">
+      <button class="av-back" data-back type="button" aria-label="Exit activity">← Exit</button>
+      <span class="av-label">AQUA STUDIO</span>
+      <button class="av-icon-btn" id="breathVoiceBtn" type="button" aria-label="Voice guidance settings" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M12 1a4 4 0 0 1 4 4v7a4 4 0 0 1-8 0V5a4 4 0 0 1 4-4z"/><path d="M19 10a7 7 0 0 1-14 0"/><line x1="12" y1="19" x2="12" y2="23"/></svg>
+      </button>
+    </div>
+
+    <div class="breath-stage">
+      <div class="breath-rings" aria-hidden="true">
+        <div class="breath-ring br-3"></div>
+        <div class="breath-ring br-2"></div>
+      </div>
+      <div class="breath-orb" id="breathOrb" aria-live="polite" aria-atomic="true">
+        <span class="breath-phase" id="breathPhase">Ready</span>
+      </div>
+      <p class="breath-hint" id="breathHint">Choose a duration and press Start</p>
+    </div>
+
+    <div class="voice-panel" id="voicePanel" hidden role="group" aria-label="Voice guidance options">
+      <p class="vp-label">VOICE GUIDANCE</p>
+      <div class="vp-modes">
+        <button class="vp-btn selected" data-vmode="none"         type="button">Animation only</button>
+        <button class="vp-btn"          data-vmode="voice"        type="button">Voice + animation</button>
+        <button class="vp-btn"          data-vmode="voice-sounds" type="button">Voice + sounds</button>
+      </div>
+      <p class="vp-note" id="vpNote">Using browser text-to-speech. Voice is off by default.</p>
+    </div>
+
+    <div class="av-controls">
+      <div class="dur-row" role="group" aria-label="Session duration">
+        <button class="dur-btn selected" data-dur="180" type="button">3 min</button>
+        <button class="dur-btn"          data-dur="240" type="button">4 min</button>
+        <button class="dur-btn"          data-dur="300" type="button">5 min</button>
+      </div>
+      <div class="timer-row">
+        <span class="timer-val" id="breathTimer">3:00</span>
+        <div class="prog-track"><div class="prog-fill" id="breathProg" style="width:0%"></div></div>
+      </div>
+      <div class="btn-row">
+        <button class="ctrl-sm" id="breathRestart" type="button" aria-label="Restart session">↺</button>
+        <button class="ctrl-primary" id="breathStart" type="button">Start</button>
+        <button class="ctrl-sm" id="breathSettingsBtn" type="button" aria-label="Open settings">⚙</button>
+      </div>
+    </div>
+
+    <div class="completion-panel" id="breathComplete" hidden>
+      <span class="comp-star" aria-hidden="true">✦</span>
+      <h3>You made a little space to breathe.</h3>
+      <p id="breathCompDur" class="comp-dur"></p>
+      <div class="comp-actions">
+        <button class="comp-btn" data-back type="button">← Home</button>
+        <button class="comp-btn comp-primary" id="breathAgain" type="button">↺ Again</button>
+        <button class="comp-btn comp-primary" id="breathOther" type="button">Try another →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ MEDITATION VIEW ═══════════════════════════ -->
+<div id="view-meditation" class="view activity-view" hidden aria-label="Meditation Sanctuary activity">
+  <div class="av-bg bg-meditation">
+    <div class="med-bg-scene" aria-hidden="true">
+      <div class="med-star ms-1"></div><div class="med-star ms-2"></div><div class="med-star ms-3"></div>
+      <div class="med-glow"></div>
+      <div class="med-hill-b"></div>
+      <div class="med-hill-f"></div>
+    </div>
+  </div>
+  <div class="av-inner">
+    <div class="av-topbar">
+      <button class="av-back av-back-light" data-back type="button">← Exit</button>
+      <span class="av-label av-label-light">LAVENDER SANCTUARY</span>
+      <button class="av-icon-btn av-icon-light" id="medSoundBtn" type="button" aria-label="Toggle background sound" aria-pressed="false">♪</button>
+    </div>
+
+    <div class="med-stage">
+      <h2 class="med-title">Find a quiet horizon</h2>
+      <div class="med-prompt-wrap" id="medPromptWrap">
+        <p class="med-prompt" id="medPrompt">Settle in. There's nowhere else you need to be right now.</p>
+      </div>
+      <p class="med-instruct" id="medInstruct">Choose a duration to begin</p>
+    </div>
+
+    <div class="av-controls av-controls-light">
+      <div class="dur-row">
+        <button class="dur-btn dur-light selected" data-dur="180" type="button">3 min</button>
+        <button class="dur-btn dur-light"          data-dur="240" type="button">4 min</button>
+        <button class="dur-btn dur-light"          data-dur="300" type="button">5 min</button>
+      </div>
+      <div class="timer-row">
+        <span class="timer-val timer-light" id="medTimer">3:00</span>
+        <div class="prog-track prog-light"><div class="prog-fill prog-fill-lav" id="medProg" style="width:0%"></div></div>
+      </div>
+      <div class="btn-row">
+        <button class="ctrl-sm ctrl-light" id="medRestart" type="button" aria-label="Restart">↺</button>
+        <button class="ctrl-primary ctrl-lav" id="medStart" type="button">Start</button>
+      </div>
+    </div>
+
+    <div class="completion-panel comp-dark" id="medComplete" hidden>
+      <span class="comp-star" style="color:#d7c8fa" aria-hidden="true">✦</span>
+      <h3 style="color:#eee6ff">A quiet moment, just for you.</h3>
+      <p id="medCompDur" class="comp-dur" style="color:#c4b8f0"></p>
+      <div class="comp-actions">
+        <button class="comp-btn comp-btn-light" data-back type="button">← Home</button>
+        <button class="comp-btn comp-primary comp-lav" id="medOther" type="button">Try another →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ YOGA VIEW ═══════════════════════════ -->
+<div id="view-yoga" class="view activity-view" hidden aria-label="Yoga and Stretching Studio activity">
+  <div class="av-bg bg-yoga"></div>
+  <div class="av-inner">
+    <div class="av-topbar">
+      <button class="av-back av-back-dark" data-back type="button">← Exit</button>
+      <span class="av-label av-label-dark">MOVEMENT STUDIO</span>
+      <span></span>
+    </div>
+
+    <div class="yoga-stage">
+      <div class="yoga-figure-area">
+        <svg class="yoga-svg" id="yogaSvg" viewBox="0 0 220 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Animated stick figure demonstrating the current stretch">
+          <g id="yf-head-g" style="transform-origin:110px 33px"><circle cx="110" cy="33" r="24" fill="#2D5240"/></g>
+          <g id="yf-body-g" style="transform-origin:110px 100px"><rect x="100" y="58" width="20" height="88" rx="10" fill="#2D5240"/></g>
+          <g id="yf-arml-g" style="transform-origin:100px 82px"><rect x="22" y="75" width="78" height="14" rx="7" fill="#2D5240"/></g>
+          <g id="yf-armr-g" style="transform-origin:120px 82px"><rect x="120" y="75" width="78" height="14" rx="7" fill="#2D5240"/></g>
+          <g id="yf-legl-g" style="transform-origin:104px 146px"><rect x="94" y="146" width="16" height="88" rx="8" fill="#2D5240"/></g>
+          <g id="yf-legr-g" style="transform-origin:116px 146px"><rect x="110" y="146" width="16" height="88" rx="8" fill="#2D5240"/></g>
+        </svg>
+      </div>
+
+      <div class="yoga-info">
+        <div class="yoga-pose-track" id="yogaPoseTrack" aria-label="Pose progress"></div>
+        <h3 class="yoga-pose-name" id="yogaPoseName">Ready to begin</h3>
+        <p class="yoga-pose-instruct" id="yogaPoseInstruct">Select a duration and press Start to begin your gentle movement sequence.</p>
+        <div class="yoga-pose-prog">
+          <div class="yoga-pose-fill" id="yogaPoseFill" style="width:0%"></div>
+        </div>
+        <p class="yoga-pose-remaining" id="yogaPoseRemain"></p>
+      </div>
+      <p class="safety-note">Move gently, stay within a comfortable range, and stop if you feel pain, dizziness, or discomfort.</p>
+    </div>
+
+    <div class="av-controls">
+      <div class="dur-row">
+        <button class="dur-btn dur-dark selected" data-dur="180" type="button">3 min</button>
+        <button class="dur-btn dur-dark"          data-dur="240" type="button">4 min</button>
+        <button class="dur-btn dur-dark"          data-dur="300" type="button">5 min</button>
+      </div>
+      <div class="timer-row">
+        <span class="timer-val timer-dark" id="yogaTimer">3:00</span>
+        <div class="prog-track"><div class="prog-fill prog-fill-lime" id="yogaProg" style="width:0%"></div></div>
+      </div>
+      <div class="btn-row">
+        <button class="ctrl-sm ctrl-dark" id="yogaPrev" type="button" aria-label="Previous pose">‹ Prev</button>
+        <button class="ctrl-primary ctrl-dark-primary" id="yogaStart" type="button">Start</button>
+        <button class="ctrl-sm ctrl-dark" id="yogaNext" type="button" aria-label="Next pose">Next ›</button>
+      </div>
+    </div>
+
+    <div class="completion-panel" id="yogaComplete" hidden>
+      <span class="comp-star" style="color:#2D5240" aria-hidden="true">✦</span>
+      <h3>You took time to move and reset.</h3>
+      <p id="yogaCompDur" class="comp-dur"></p>
+      <div class="comp-actions">
+        <button class="comp-btn" data-back type="button">← Home</button>
+        <button class="comp-btn comp-primary comp-lime" id="yogaOther" type="button">Try another →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ GROUNDING VIEW ═══════════════════════════ -->
+<div id="view-grounding" class="view activity-view" hidden aria-label="Grounding Garden activity">
+  <div class="av-bg bg-grounding"></div>
+  <div class="av-inner">
+    <div class="av-topbar">
+      <button class="av-back av-back-dark" data-back type="button">← Exit</button>
+      <span class="av-label av-label-dark">SENSORY GARDEN</span>
+      <span></span>
+    </div>
+
+    <div class="grounding-stage">
+      <h2 class="grounding-title">Come back to your senses</h2>
+      <p class="grounding-intro">A simple 3–2–1 exercise to anchor you gently in this moment.</p>
+
+      <div class="grounding-steps" id="groundingSteps">
+        <div class="gs-step gs-active" data-step="0" id="gs0">
+          <div class="gs-header">
+            <div class="gs-number">3</div>
+            <div class="gs-title">Things you can <strong>see</strong></div>
+          </div>
+          <div class="gs-body">
+            <p>Look around slowly. Notice 3 things — their colour, shape, or texture.</p>
+            <textarea class="gs-textarea" placeholder="Write what you notice… (optional)" aria-label="3 things you can see"></textarea>
+            <button class="gs-next" type="button" data-next="1">Next →</button>
+          </div>
+        </div>
+        <div class="gs-step gs-locked" data-step="1" id="gs1">
+          <div class="gs-header">
+            <div class="gs-number gs-num-muted">2</div>
+            <div class="gs-title gs-title-muted">Things you can <strong>feel</strong></div>
+          </div>
+          <div class="gs-body" hidden>
+            <p>Notice 2 physical sensations — your feet on the floor, your hands in your lap.</p>
+            <textarea class="gs-textarea" placeholder="Write what you notice… (optional)" aria-label="2 things you can feel"></textarea>
+            <button class="gs-next" type="button" data-next="2">Next →</button>
+          </div>
+        </div>
+        <div class="gs-step gs-locked" data-step="2" id="gs2">
+          <div class="gs-header">
+            <div class="gs-number gs-num-muted">1</div>
+            <div class="gs-title gs-title-muted">Sound you can <strong>hear</strong></div>
+          </div>
+          <div class="gs-body" hidden>
+            <p>Listen softly. Notice 1 sound in your environment right now.</p>
+            <textarea class="gs-textarea" placeholder="Write what you notice… (optional)" aria-label="1 sound you can hear"></textarea>
+            <button class="gs-finish" type="button">Finish ✦</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="av-controls">
+      <div class="dur-row">
+        <button class="dur-btn dur-dark selected" data-dur="180" type="button">3 min</button>
+        <button class="dur-btn dur-dark"          data-dur="240" type="button">4 min</button>
+        <button class="dur-btn dur-dark"          data-dur="300" type="button">5 min</button>
+      </div>
+      <div class="timer-row">
+        <span class="timer-val timer-dark" id="groundTimer">3:00</span>
+        <div class="prog-track"><div class="prog-fill prog-fill-mint" id="groundProg" style="width:0%"></div></div>
+      </div>
+      <div class="btn-row">
+        <button class="ctrl-sm ctrl-dark" id="groundRestart" type="button" aria-label="Restart">↺</button>
+        <button class="ctrl-primary ctrl-mint-primary" id="groundStart" type="button">Start</button>
+      </div>
+    </div>
+
+    <div class="completion-panel" id="groundComplete" hidden>
+      <span class="comp-star" style="color:#2d7a60" aria-hidden="true">✦</span>
+      <h3>You came back to the present.</h3>
+      <p id="groundCompDur" class="comp-dur"></p>
+      <div class="comp-actions">
+        <button class="comp-btn" data-back type="button">← Home</button>
+        <button class="comp-btn comp-primary comp-mint" id="groundOther" type="button">Try another →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ BODY RELAXATION VIEW ═══════════════════════════ -->
+<div id="view-relaxation" class="view activity-view" hidden aria-label="Body Relaxation activity">
+  <div class="av-bg bg-peach">
+    <div class="relax-glow" aria-hidden="true"></div>
+  </div>
+  <div class="av-inner">
+    <div class="av-topbar">
+      <button class="av-back" data-back type="button">← Exit</button>
+      <span class="av-label" style="color:#c47060">WARM UNWIND</span>
+      <span></span>
+    </div>
+
+    <div class="relax-stage">
+      <h2>Let your body unclench</h2>
+      <div class="relax-body-map" id="relaxBodyMap" aria-hidden="true">
+        <div class="rbm-region" data-r="0">Forehead & Jaw</div>
+        <div class="rbm-region" data-r="1">Shoulders</div>
+        <div class="rbm-region" data-r="2">Hands</div>
+        <div class="rbm-region" data-r="3">Abdomen</div>
+        <div class="rbm-region" data-r="4">Legs</div>
+        <div class="rbm-region" data-r="5">Feet</div>
+      </div>
+      <div class="relax-prompt">
+        <p class="relax-region-name" id="relaxRegion">Get comfortable</p>
+        <p class="relax-region-instruct" id="relaxInstruct">Find a comfortable position. Allow your body to settle. Take a slow breath in, and a gentle breath out.</p>
+        <button class="skip-region" id="skipRegion" type="button" hidden>Skip this area</button>
+      </div>
+      <div class="relax-region-prog">
+        <div class="relax-region-fill" id="relaxRegionFill" style="width:0%"></div>
+      </div>
+    </div>
+
+    <div class="av-controls">
+      <div class="dur-row">
+        <button class="dur-btn selected" data-dur="180" type="button">3 min</button>
+        <button class="dur-btn"          data-dur="240" type="button">4 min</button>
+        <button class="dur-btn"          data-dur="300" type="button">5 min</button>
+      </div>
+      <div class="timer-row">
+        <span class="timer-val" id="relaxTimer">3:00</span>
+        <div class="prog-track"><div class="prog-fill prog-fill-peach" id="relaxProg" style="width:0%"></div></div>
+      </div>
+      <div class="btn-row">
+        <button class="ctrl-sm" id="relaxRestart" type="button" aria-label="Restart">↺</button>
+        <button class="ctrl-primary ctrl-peach" id="relaxStart" type="button">Start</button>
+      </div>
+    </div>
+
+    <div class="completion-panel" id="relaxComplete" hidden>
+      <span class="comp-star" style="color:#c47060" aria-hidden="true">✦</span>
+      <h3>You gave yourself a moment to soften.</h3>
+      <p id="relaxCompDur" class="comp-dur"></p>
+      <div class="comp-actions">
+        <button class="comp-btn" data-back type="button">← Home</button>
+        <button class="comp-btn comp-primary comp-peach" id="relaxOther" type="button">Try another →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ SCREEN BREAK VIEW ═══════════════════════════ -->
+<div id="view-screen" class="view activity-view" hidden aria-label="Screen Break activity">
+  <div class="av-bg bg-sky"></div>
+  <div class="av-inner">
+    <div class="av-topbar">
+      <button class="av-back av-back-dark" data-back type="button">← Exit</button>
+      <span class="av-label av-label-dark">FRESH-AIR INTERMISSION</span>
+      <span></span>
+    </div>
+
+    <div class="screen-stage">
+      <div class="screen-scene" aria-hidden="true">
+        <div class="ss-sky"></div>
+        <div class="ss-sun"></div>
+        <div class="ss-hill"></div>
+      </div>
+      <div class="screen-step-card" id="screenStepCard">
+        <p class="screen-step-count" id="screenStepCount">Step 1 of 5</p>
+        <h3 class="screen-step-title" id="screenStepTitle">Look somewhere farther</h3>
+        <p class="screen-step-desc" id="screenStepDesc">Find a point across the room or outside the window. Let your eyes rest on that distant spot for a few slow breaths.</p>
+        <div class="screen-dots" id="screenDots" role="progressbar" aria-label="Step progress">
+          <span class="sdot active"></span><span class="sdot"></span><span class="sdot"></span><span class="sdot"></span><span class="sdot"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="av-controls">
+      <div class="dur-row">
+        <button class="dur-btn dur-dark selected" data-dur="180" type="button">3 min</button>
+        <button class="dur-btn dur-dark"          data-dur="240" type="button">4 min</button>
+        <button class="dur-btn dur-dark"          data-dur="300" type="button">5 min</button>
+      </div>
+      <div class="timer-row">
+        <span class="timer-val timer-dark" id="screenTimer">3:00</span>
+        <div class="prog-track"><div class="prog-fill prog-fill-sky" id="screenProg" style="width:0%"></div></div>
+      </div>
+      <div class="btn-row">
+        <button class="ctrl-sm ctrl-dark" id="screenRestart" type="button" aria-label="Restart">↺</button>
+        <button class="ctrl-primary ctrl-sky-primary" id="screenStart" type="button">Start</button>
+      </div>
+    </div>
+
+    <div class="completion-panel" id="screenComplete" hidden>
+      <span class="comp-star" style="color:#2d6880" aria-hidden="true">✦</span>
+      <h3>A little distance from the screen can feel refreshing.</h3>
+      <p id="screenCompDur" class="comp-dur"></p>
+      <div class="comp-actions">
+        <button class="comp-btn" data-back type="button">← Home</button>
+        <button class="comp-btn comp-primary comp-sky" id="screenOther" type="button">Try another →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ REFLECTION VIEW ═══════════════════════════ -->
+<div id="view-reflection" class="view activity-view" hidden aria-label="Quiet Reflection activity">
+  <div class="av-bg bg-lilac"></div>
+  <div class="av-inner">
+    <div class="av-topbar">
+      <button class="av-back" data-back type="button">← Exit</button>
+      <span class="av-label" style="color:#9b84c8">PERSONAL JOURNAL</span>
+      <span></span>
+    </div>
+
+    <div class="reflection-stage">
+      <div class="journal-card">
+        <div class="jc-top">
+          <span class="jc-date" id="jcDate"></span>
+          <button class="jc-new-prompt" id="jcNewPrompt" type="button">New prompt</button>
+        </div>
+        <p class="jc-prompt" id="jcPrompt">What is taking up space in your mind right now?</p>
+        <textarea class="jc-textarea" id="jcText" placeholder="Write whatever comes to mind. There are no wrong answers here." aria-label="Your reflection"></textarea>
+        <div class="jc-footer">
+          <button class="jc-save" id="jcSave" type="button">Save reflection ✦</button>
+          <span class="jc-privacy">Saved on this device only</span>
+        </div>
+      </div>
+
+      <div class="saved-reflections-wrap" id="savedReflWrap" hidden>
+        <h4 class="saved-refl-title">Previous reflections</h4>
+        <div class="saved-refl-list" id="savedReflList"></div>
+      </div>
+    </div>
+
+    <div class="av-controls">
+      <div class="dur-row">
+        <button class="dur-btn selected" data-dur="180" type="button">3 min</button>
+        <button class="dur-btn"          data-dur="240" type="button">4 min</button>
+        <button class="dur-btn"          data-dur="300" type="button">5 min</button>
+      </div>
+      <div class="timer-row">
+        <span class="timer-val" style="color:#7a68a8" id="reflTimer">Optional</span>
+        <div class="prog-track"><div class="prog-fill prog-fill-lav" id="reflProg" style="width:0%"></div></div>
+      </div>
+      <div class="btn-row">
+        <button class="ctrl-sm" id="reflRestart" type="button" aria-label="Restart timer">↺</button>
+        <button class="ctrl-primary ctrl-lav" id="reflStart" type="button">Optional timer</button>
+        <button class="ctrl-sm" id="reflFinishEarly" type="button">Done</button>
+      </div>
+    </div>
+
+    <div class="completion-panel" id="reflComplete" hidden>
+      <span class="comp-star" style="color:#9b84c8" aria-hidden="true">✦</span>
+      <h3>Thank you for taking a moment to check in.</h3>
+      <p id="reflCompDur" class="comp-dur"></p>
+      <div class="comp-actions">
+        <button class="comp-btn" data-back type="button">← Home</button>
+        <button class="comp-btn comp-primary comp-lav" id="reflOther" type="button">Try another →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ GRATITUDE VIEW ═══════════════════════════ -->
+<div id="view-gratitude" class="view activity-view" hidden aria-label="Gratitude Garden activity">
+  <div class="av-bg bg-gold">
+    <div class="grat-orb go-1" aria-hidden="true"></div>
+    <div class="grat-orb go-2" aria-hidden="true"></div>
+    <div class="grat-orb go-3" aria-hidden="true"></div>
+  </div>
+  <div class="av-inner">
+    <div class="av-topbar">
+      <button class="av-back" data-back type="button">← Exit</button>
+      <span class="av-label" style="color:#996020">SUNSHINE NOTES</span>
+      <span></span>
+    </div>
+
+    <div class="gratitude-stage">
+      <h2 class="grat-title">Keep one good thing</h2>
+
+      <div class="note-composer">
+        <div class="nc-prompt-row">
+          <p class="nc-prompt" id="ncPrompt">Something small that made me smile…</p>
+          <button class="nc-change" id="ncChange" type="button">Try another prompt</button>
+        </div>
+        <textarea class="nc-textarea" id="ncText" placeholder="Write anything — big or small…" aria-label="Your gratitude note"></textarea>
+        <div class="nc-footer">
+          <button class="nc-save" id="ncSave" type="button">Add to garden ✦</button>
+          <span class="nc-privacy">Saved on this device only</span>
+        </div>
+      </div>
+
+      <div class="notes-gallery" id="notesGallery">
+        <div class="notes-empty" id="notesEmpty">
+          <p>Your garden is waiting. Add your first note above.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="av-controls">
+      <div class="dur-row">
+        <button class="dur-btn selected" data-dur="180" type="button">3 min</button>
+        <button class="dur-btn"          data-dur="240" type="button">4 min</button>
+        <button class="dur-btn"          data-dur="300" type="button">5 min</button>
+      </div>
+      <div class="timer-row">
+        <span class="timer-val" style="color:#996020" id="gratTimer">Optional</span>
+        <div class="prog-track"><div class="prog-fill prog-fill-gold" id="gratProg" style="width:0%"></div></div>
+      </div>
+      <div class="btn-row">
+        <button class="ctrl-sm" id="gratRestart" type="button" aria-label="Restart timer">↺</button>
+        <button class="ctrl-primary ctrl-gold" id="gratStart" type="button">Guided time</button>
+      </div>
+    </div>
+
+    <div class="completion-panel" id="gratComplete" hidden>
+      <span class="comp-star" style="color:#c08030" aria-hidden="true">✦</span>
+      <h3>You made room for something worth appreciating.</h3>
+      <p id="gratCompDur" class="comp-dur"></p>
+      <div class="comp-actions">
+        <button class="comp-btn" data-back type="button">← Home</button>
+        <button class="comp-btn comp-primary comp-gold" id="gratOther" type="button">Try another →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ MY GARDEN VIEW ═══════════════════════════ -->
+<div id="view-garden" class="view page-view" hidden aria-label="My Garden — your progress and notes">
+  <div class="page-topbar">
+    <button class="av-back av-back-dark" data-back type="button">← Home</button>
+    <h1>My Garden</h1>
+    <button class="clear-data-btn" id="clearDataBtn" type="button">Clear all data</button>
+  </div>
+  <div class="garden-page">
+    <div class="garden-stats" id="gardenStats"></div>
+    <div class="garden-section">
+      <h3>Recent sessions</h3>
+      <div class="sessions-list" id="sessionsList">
+        <p class="empty-msg" id="sessionsEmpty">No completed sessions yet. Finish an activity to see it here.</p>
+      </div>
+    </div>
+    <div class="garden-section">
+      <h3>Gratitude notes</h3>
+      <div class="garden-notes" id="gardenNotes">
+        <p class="empty-msg" id="gardenNotesEmpty">No notes saved yet.</p>
+      </div>
+    </div>
+    <div class="garden-section">
+      <h3>Reflections</h3>
+      <div class="garden-refls" id="gardenRefls">
+        <p class="empty-msg" id="gardenReflsEmpty">No reflections saved yet.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ AUTH VIEW ═══════════════════════════ -->
+<div id="view-auth" class="view page-view" hidden aria-label="Sign in or create a profile">
+  <div class="auth-page">
+    <button class="av-back av-back-dark" data-back type="button" style="margin-bottom:2rem">← Back</button>
+    <div class="auth-card">
+      <div id="signinForm">
+        <h2>Welcome back</h2>
+        <p>Enter your name to continue.</p>
+        <label class="auth-label" for="siEmail">Your name</label>
+        <input class="auth-input" type="text" id="siEmail" placeholder="e.g. Amara" autocomplete="given-name"/>
+        <button class="auth-submit" id="siSubmit" type="button">Continue →</button>
+        <p class="auth-switch">New here? <button class="text-link" id="showSignup" type="button">Create a profile</button></p>
+        <p class="auth-privacy">Your profile is stored on this device only. No password required.</p>
+      </div>
+      <div id="signupForm" hidden>
+        <h2>Create your profile</h2>
+        <p>Just your name — that's all we need to personalise your garden.</p>
+        <label class="auth-label" for="suName">Your name</label>
+        <input class="auth-input" type="text" id="suName" placeholder="e.g. Amara" autocomplete="given-name"/>
+        <label class="auth-label" for="suEmail">Email (optional, display only)</label>
+        <input class="auth-input" type="email" id="suEmail" placeholder="hello@example.com" autocomplete="email"/>
+        <button class="auth-submit" id="suSubmit" type="button">Create profile →</button>
+        <p class="auth-switch">Already have one? <button class="text-link" id="showSignin" type="button">Sign in</button></p>
+        <p class="auth-privacy">Stored on this device only.</p>
+      </div>
+      <div class="auth-error" id="authError" hidden role="alert"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ AUDIO BAR ═══════════════════════════ -->
+<div class="audio-bar" id="audioBar" hidden role="region" aria-label="Currently playing sound">
+  <span class="ab-icon" aria-hidden="true">♪</span>
+  <span class="ab-name" id="abName">Gentle Rain</span>
+  <button class="ab-btn" id="abPlayPause" type="button" aria-label="Pause sound">⏸</button>
+  <label class="ab-vol-label" for="abVol" aria-label="Volume">
+    <input class="ab-vol" type="range" id="abVol" min="0" max="1" step="0.05" value="0.5"/>
+  </label>
+  <button class="ab-btn ab-stop" id="abStop" type="button" aria-label="Stop sound">✕</button>
+</div>
+
+<!-- HELP BUTTON -->
+<button class="help-fab" id="helpFab" type="button" aria-label="Help and keyboard shortcuts">?</button>
+
+<script src="app.js"></script>
+</body>
+</html>
