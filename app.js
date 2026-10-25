@@ -424,7 +424,7 @@ const AudioManager = (() => {
     }
 
     // Sync sound chips on home
-    $$('[data-sound]').forEach(chip => {
+    $$('.sound-chip').forEach(chip => {
       const isCur = chip.dataset.sound === current;
       chip.classList.toggle('active', isCur);
     });
@@ -2291,7 +2291,7 @@ function initAudioBar() {
   $('abVol').addEventListener('input', e => AudioManager.setVol(+e.target.value));
 
   // Sound chips on home
-  $$('[data-sound]').forEach(chip => {
+  $$('.sound-chip').forEach(chip => {
     chip.addEventListener('click', () => {
       const sound = chip.dataset.sound;
       if (AudioManager.current === sound && AudioManager.isPlaying) {
